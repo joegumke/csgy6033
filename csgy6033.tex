@@ -1,0 +1,62 @@
+\documentclass{article}
+\usepackage[margin=.5in]{geometry}
+\usepackage{amssymb,color,soul}
+\usepackage[skins]{tcolorbox}
+\title{CSGY-6003 Algorithm Cheat Sheet}
+\begin{document}
+
+\begin{table}[h!]
+    \begin{center}
+      \caption{Increasing Order Of Growth}
+      \label{tab:table1}
+      \begin{tabular}{l|c|c} 
+        \textbf{Type} & \textbf{Big-Oh} & \textbf{Asymptotic Order}\\
+        \hline
+        Logarithmic: & $O(log \textit{n})$  & log \textit{n}\\
+        Poly Logarithmic: & $O((log n)^2), O((log n^3),...$ & $(log n)^2 \leq (log n)^3 \leq (log n)^4 \leq ...$ \\
+        Fractional Power: & $O(n^c) for 0 < c < 1 $ & $ n^{0.1} \leq n^{0.2} \leq n^{0.3} \leq ...$\\
+        Linear: & $O(n)$ & \textit{n}\\
+        $n log n$ time: & $O(n log n)$ & $n log n \leq n(log n)^2 \leq n(log n)^3 \leq ...$ \\
+        Polynomial Time: & $O (n^a) for a > 1$ & $ n^2 \leq n^3 \leq $...\\
+        Exponential Time: & $O (2^n$) & $1.5^n \leq 2^n \leq 3^n ...$\\
+    \end{tabular}
+    \end{center}
+    \end{table}
+
+\center\textbf{Definitions}
+
+\begin{flushleft}
+\textbf{Big O Notation:} 
+Will give us an upper bound for function f(n) when n is very large/asymptotically. 
+This is used extensively to describe the worst case scenario for the number of operations used by an algorithm.
+The notation used in the definition is: O(g(n)) which is read “big-oh of g of n”
+
+\textbf{Definition:}\begin{tcolorbox}[enhanced,width=7.5in,center upper,size=fbox,drop shadow southwest,sharp corners]
+\textit{Let f(n) : N → R+. For a given function g(n), we say that \hl{f(n) is O(g(n))} if there are constants C and k such that: $f(n) \leq Cg(n)$ for all n $>$k}
+\end{tcolorbox}
+
+\begin{tcolorbox}[enhanced,width=2in,center upper,size=fbox,drop shadow southwest,sharp corners]
+\textit{$log_2 n \leq$ n for all n $\geq 1$}
+\end{tcolorbox}
+
+\textbf{This inequality is true for all logarithms for any base b $>$ 0}
+\begin{tcolorbox}[enhanced,width=7.5in,center upper,size=fbox,drop shadow southwest,sharp corners]
+\textit{For a base \textit{b} $>$ 1 and any exponent \textit{a} $>$ 0 we have that $log_b n \leq n^a$ for large enough n (for n $\geq k$ for some constant k)}
+\end{tcolorbox} 
+
+\vspace{8mm}\textbf{Big Omega Notation $\Omega$:}
+The notation Big-$\omega$ is defined similar to that of Big-O but for a lower bound.
+
+\textbf{Definition:}\begin{tcolorbox}[enhanced,width=7.5in,center upper,size=fbox,drop shadow southwest,sharp corners]
+\textit{Let f(n) and g(n) be functions on the natural numbers to the positive real numbers. We say that f(n) is $\Omega(g(n))$ if there is a constant C such that f(n) $\geq$ Cg(n) whenever n $>$ k}
+\end{tcolorbox}
+
+\vspace{8mm}\textbf{Big Theta Notation $\theta$:}
+Big-$\theta$ Notation is used to specify the function f(n) that is sandwiched between multiples of g(n).
+\textbf{Definition:}\begin{tcolorbox}[enhanced,width=7.5in,center upper,size=fbox,drop shadow southwest,sharp corners]
+\textit{Let f(n), and g(n) be functions from the natural numbers to the positive reals. If f(n) is O(g(n)) and f(n) is $\Omega$(g(n)) then we say that f(n) is of the order of g(n) and use the notation $\theta$(g(n))}
+\end{tcolorbox}
+
+
+\end{flushleft}
+\end{document}
