@@ -62,11 +62,39 @@ If being asked for Theta one must prove for Big O AND Big Omega
 
 \begin{flushleft}
 \vspace{8mm}\textbf{Summation Formula:}\newline
-$\displaystyle\sum_{k=1}^{n} k = 1/2 n(n+1) = \theta(n^2)$
-\newline$\displaystyle\sum_{k=1}^{n} 10k = 10n(n+1)/2 = \theta(n^2)$
+$\displaystyle\sum_{k=1}^{n} k = \frac{1}{2n}(n+1) = \theta(n^2)$
+\newline$\displaystyle\sum_{k=1}^{n} 10k = \frac{10n(n+1)}{2} = \theta(n^2)$
+\newline \textbf{Finding Summation Lower Bounds:} 
+\newline Example: $\displaystyle\sum_{k=1}^{n} k^2 *n^{22}$
+\newline Swap k=1 for half the list $\frac{n}{2}$ in this case k=1 $>$ n is now $\frac{n}{2} >$ n. =  $\displaystyle\sum_{k=n/2}^{n} (\frac{n}{2})^2 *n^{22}$
+\newline Further Processed: $\displaystyle\sum_{k=n/2}^{n} \frac{n^2}{4} *n^{22}$
+\newline Further Process the remainders which equal to: $\displaystyle\sum_{k=n/2}^{n} \frac{n^{24}}{4}$
+\newline Multiply The Initial Swapped Lower Summation To the newly calculated values: 
+$\displaystyle\sum_{k=n/2}^{n} \frac{n^{24}}{4} * \frac{n}{2} = \frac{n^{25}}{8}$
 
 \vspace{8mm}\textbf{LOG N Formula:}
-Log N : $50 * Log n^3 <=> 150 * logn$
+Log N : $50 * Log n^3 <=> 150 * logn$ \newline
+
+\textbf{Master Method Formula:} $T(n) = aT\frac{n}{b} + f(n)$
+\newline Master Method Requirements: \newline
+1. $a \geq 1$ (Has to be at least One, which means it Must recurse at least once)
+\newline 2. $b > 1$ Has to be at least one (Otherwise T(n) = $\infty$)
+3. a and b are O(1)
+\newline 4. $f(n) > o for n>n_o$
+
+Master Method processing
+f(n) goes to the root of the tree and branch out as many times as necessary
+\newline each time you branch out, you branch out as T(n/b). 
+\newline each time you branch out per level $f(n) > a*f\frac{n}{b} > a^2 * f\frac{n}{b^2} > a^i*f\frac{n}{b^i}$  
+height of tree determined only by information inside master method formula $\frac{n}{b}$
+if height is $\frac{n}{b}$ then we are going to have $h=Log_bn$ levels. How many times can you take N and Divide by B. 
+how many leafs?
+look at level formula above $a^i * f(\frac{n}{b^i})$
+process Number of leaves with $a^h = a^{logbn} = n^{log_ba}$ ***SWAP A and N ***
+
+Per Leaf processing = $\Theta(_nlog_ba)$ per leaf
+\newline each leaf takes constant time to solve. 
+
 
 
 \end{flushleft}
